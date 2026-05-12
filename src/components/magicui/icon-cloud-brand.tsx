@@ -46,11 +46,21 @@ export function IconCloudBrand({
   size,
   className,
   maxBlur,
+  autoRotateAxis,
 }: {
   variant?: keyof typeof brandCloudImages;
   size?: number;
   className?: string;
   maxBlur?: number;
+  autoRotateAxis?: "free" | "x" | "y";
 }) {
-  return <IconCloud images={brandCloudImages[variant]} size={size} className={className} maxBlur={maxBlur} />;
+  return (
+    <IconCloud
+      images={brandCloudImages[variant]}
+      size={size}
+      className={className}
+      maxBlur={maxBlur}
+      autoRotateAxis={autoRotateAxis}
+    />
+  );
 }

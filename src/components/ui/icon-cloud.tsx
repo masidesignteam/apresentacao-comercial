@@ -19,6 +19,7 @@ interface IconCloudProps {
   size?: number
   className?: string
   maxBlur?: number
+  autoRotateAxis?: "free" | "x" | "y"
 }
 
 function easeOutCubic(t: number): number {
@@ -89,7 +90,14 @@ function drawImageWithDepthBlur({
   ctx.drawImage(image, x - halfSize, y - halfSize, drawSize, drawSize)
 }
 
-export function IconCloud({ icons, images, size = 400, className, maxBlur = 0 }: IconCloudProps) {
+export function IconCloud({
+  icons,
+  images,
+  size = 400,
+  className,
+  maxBlur = 0,
+  autoRotateAxis = "free",
+}: IconCloudProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const iconBufferSize = Math.max(80, Math.round(size / 4))
   const iconDrawSize = 40
@@ -311,9 +319,19 @@ export function IconCloud({ icons, images, size = 400, className, maxBlur = 0 }:
             setTargetRotation(null)
           }
         } else if (!isDragging) {
+          const autoRotation =
+            autoRotateAxis === "x"
+              ? { x: speed, y: 0 }
+              : autoRotateAxis === "y"
+                ? { x: 0, y: speed }
+                : {
+                    x: (dy / canvas.height) * speed,
+                    y: (dx / canvas.width) * speed,
+                  }
+
           rotationRef.current = {
-            x: rotationRef.current.x + (dy / canvas.height) * speed,
-            y: rotationRef.current.y + (dx / canvas.width) * speed,
+            x: rotationRef.current.x + autoRotation.x,
+            y: rotationRef.current.y + autoRotation.y,
           }
         }
 
@@ -380,7 +398,7 @@ export function IconCloud({ icons, images, size = 400, className, maxBlur = 0 }:
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [icons, images, iconPositions, isDragging, maxBlur, mousePos, targetRotation])
+  }, [autoRotateAxis, icons, images, iconPositions, isDragging, maxBlur, mousePos, targetRotation])
 
   return (
     <canvas

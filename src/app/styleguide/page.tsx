@@ -70,6 +70,7 @@ export default function StyleguideHomePage() {
                 variant="brandColorsWithIcons"
                 size={840}
                 maxBlur={5}
+                autoRotateAxis="y"
                 className="size-[min(70vw,644px)] max-h-[644px] max-w-[644px]"
               />
             </div>
