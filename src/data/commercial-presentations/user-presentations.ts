@@ -2,6 +2,210 @@ import type { CommercialPresentation } from "./types";
 
 export const userPresentations: CommercialPresentation[] = [
   {
+    id: "user-planejamento-estrategico-2026",
+    slug: "planejamento-estrategico-2026",
+    title: "Planejamento\nEstratégico\n2026",
+    subtitle: "7 e 8 de fevereiro — São Paulo",
+    description: "Workshop presencial de 2 dias para definir o Planejamento Estratégico do seu negócio com a metodologia do iFood, PK XD e PlayKids.",
+    theme: "Workshop comercial, planejamento estratégico, imersão",
+    style: "Editorial institucional",
+    useCase: "Vendas e divulgação do MASI Workshop 2026",
+    accent: "#5FC318",
+    darkAccent: "#0C1C16",
+    tags: ["Workshop", "Estratégia", "2026"],
+    slides: [
+      // 01 — Capa
+      {
+        id: "planejamento-estrategico-2026-01",
+        type: "cover",
+        visual: "editorial",
+        eyebrow: "01 / 14 - Capa",
+        footer: "MASI Negócios - Design System",
+        title: "Planejamento\nEstratégico\n2026",
+        subtitle: "7 e 8 de fevereiro — São Paulo",
+        body: "2 dias de imersão presencial para definir o planejamento estratégico do seu negócio com quem fez o iFood.",
+        bullets: ["Workshop", "Estratégia", "2026"],
+      },
+      // 02 — Tese
+      {
+        id: "planejamento-estrategico-2026-02",
+        type: "statement",
+        visual: "quote",
+        eyebrow: "02 / 14 - Imersão",
+        footer: "MASI Negócios - Design System",
+        title: "2 Dias de Imersão Presencial",
+        quote: "A mesma metodologia que o Breno usa no iFood, PK XD, PlayKids e FingerTips — agora aplicada ao seu negócio.",
+        body: "No formato Hackathon Business: mão na massa, prático e aplicável.",
+      },
+      // 03 — As 3 Fases
+      {
+        id: "planejamento-estrategico-2026-03",
+        type: "framework",
+        visual: "matrix",
+        eyebrow: "03 / 14 - As 3 Fases",
+        footer: "MASI Negócios - Design System",
+        title: "As 3 Fases do Workshop",
+        body: "Uma jornada completa do pré ao pós, desenhada para gerar resultado real no seu negócio.",
+        cards: [
+          { title: "01 — Pré", description: "Alinhamento, estudos e relacionamento pré-evento." },
+          { title: "02 — Workshop", description: "Diagnóstico, metodologia e aplicação prática." },
+          { title: "03 — Pós", description: "Implementação e acompanhamento de 90 dias." },
+        ],
+      },
+      // 04 — Pré-Workshop detalhado
+      {
+        id: "planejamento-estrategico-2026-04",
+        type: "leaders",
+        visual: "cards",
+        eyebrow: "04 / 14 - Pré-Workshop",
+        footer: "MASI Negócios - Design System",
+        title: "Antes do Workshop",
+        body: "Antes de começar, você já faz parte da experiência com alinhamento, relacionamento e estudos que preparam o terreno.",
+        cards: [
+          { title: "Grupo Exclusivo", description: "Conheça os empresários que estarão com você." },
+          { title: "Artigo Harvard", description: "Artigo Harvard para benchmarking e preparação." },
+          { title: "Checklist", description: "Perguntas estratégicas sobre o seu negócio." },
+        ],
+      },
+      // 05 — O Workshop por dentro
+      {
+        id: "planejamento-estrategico-2026-05",
+        type: "behavior",
+        visual: "map",
+        eyebrow: "05 / 14 - O Workshop",
+        footer: "MASI Negócios - Design System",
+        title: "O Workshop por dentro",
+        body: "No Jive House, espaço premium no coração da Faria Lima, dois dias dedicados ao método que escalou iFood, PK XD e PlayKids.",
+      },
+      // 06 — Metodologia: pilares
+      {
+        id: "planejamento-estrategico-2026-06",
+        type: "framework",
+        visual: "matrix",
+        eyebrow: "06 / 14 - Metodologia",
+        footer: "MASI Negócios - Design System",
+        title: "A Metodologia",
+        body: "Cinco pilares que estruturam seu planejamento estratégico de ponta a ponta.",
+        cards: [
+          { title: "Fundamentos", description: "Missão, visão e valores da organização." },
+          { title: "Análises", description: "SWOT, análise de mercado e stakeholders." },
+          { title: "Objetivos", description: "Estratégia, metas SMARTs e KPIs definidos." },
+          { title: "Execução", description: "Cronograma, implementação e gestão de riscos." },
+        ],
+      },
+      // 07 — Pós-Workshop
+      {
+        id: "planejamento-estrategico-2026-07",
+        type: "benefits",
+        visual: "cards",
+        eyebrow: "07 / 14 - Pós-Workshop",
+        footer: "MASI Negócios - Design System",
+        title: "Pós-Workshop",
+        body: "Após o workshop, você segue com suporte, comunidade e ferramentas para implementar tudo.",
+        cards: [
+          { title: "Masi Academy", description: "Acesso à plataforma de cursos e treinamentos online." },
+          { title: "Agente de IA", description: "Inteligência artificial para acelerar a implementação." },
+          { title: "Comunidade", description: "Grupo exclusivo no WhatsApp e networking com empresários." },
+        ],
+      },
+      // 08 — O que você leva
+      {
+        id: "planejamento-estrategico-2026-08",
+        type: "leaders",
+        visual: "cards",
+        eyebrow: "08 / 14 - O que você leva",
+        footer: "MASI Negócios - Design System",
+        title: "O que você leva",
+        body: "Ferramentas práticas e um kit premium para aplicar a metodologia muito além do workshop.",
+        cards: [
+          { title: "Apostilas", description: "Material didático impresso e digital para revisão." },
+          { title: "Frameworks", description: "Templates validados: dados, inovação, IA e execução." },
+          { title: "Kit Premium", description: "Caderno, caneta e credencial personalizada." },
+        ],
+      },
+      // 09 — Onde e quando
+      {
+        id: "planejamento-estrategico-2026-09",
+        type: "concept",
+        visual: "map",
+        eyebrow: "09 / 14 - Onde e Quando",
+        footer: "MASI Negócios - Design System",
+        title: "Onde e Quando?",
+        body: "Jive House, no coração da Faria Lima. Espaço premium para um grupo seleto de 40 empresários.",
+        bullets: [
+          "7 e 8 de fevereiro",
+          "São Paulo — Faria Lima",
+          "40 empresários selecionados",
+        ],
+      },
+      // 10 — Virada: o custo de não agir
+      {
+        id: "planejamento-estrategico-2026-10",
+        type: "turning-point",
+        visual: "dark",
+        eyebrow: "10 / 14 - O Custo Real",
+        footer: "MASI Negócios - Design System",
+        title: "O custo real",
+        body: "Mais um ano sem planejamento estratégico custa milhões em energia desperdiçada e tempo que nunca volta.",
+        quote: "Custa muito mais do que imagina.",
+      },
+      // 11 — Investimento
+      {
+        id: "planejamento-estrategico-2026-11",
+        type: "stats",
+        visual: "stats",
+        eyebrow: "11 / 14 - Investimento",
+        footer: "MASI Negócios - Design System",
+        title: "Seu investimento",
+        body: "Com tudo o que você já viu, por muito menos do que realmente vale.",
+        stats: [
+          { value: "R$ 7.997", label: "Valor com 20% de desconto ao fechar hoje" },
+          { value: "12x", label: "De R$ 831,96 no cartão de crédito" },
+          { value: "40", label: "Vagas disponíveis para empresários selecionados" },
+        ],
+      },
+      // 12 — Tomadores de decisão
+      {
+        id: "planejamento-estrategico-2026-12",
+        type: "principle",
+        visual: "quote",
+        eyebrow: "12 / 14 - Tomadores de Decisão",
+        footer: "MASI Negócios - Design System",
+        title: "Feito para tomadores de decisão",
+        quote: "Com 20% de desconto, leve até 2 pessoas a mais pela metade do valor.",
+        body: "Decisões estratégicas precisam ser tomadas por quem tem poder de implementá-las.",
+      },
+      // 13 — Bônus: Check-ins
+      {
+        id: "planejamento-estrategico-2026-13",
+        type: "action-plan",
+        visual: "timeline",
+        eyebrow: "13 / 14 - Bônus",
+        footer: "MASI Negócios - Design System",
+        title: "Bônus: Check-ins de Implementação",
+        body: "Acompanhamento pós-workshop para garantir a implementação.",
+        cards: [
+          { title: "Início", description: "Defina as prioridades de implementação do plano." },
+          { title: "30 dias", description: "Acompanhamento e aceleração dos primeiros resultados." },
+          { title: "60 dias", description: "Ajuste de rota e solução de obstáculos identificados." },
+          { title: "90 dias", description: "Revisão do planejamento e definição dos próximos 90 dias." },
+        ],
+      },
+      // 14 — Contracapa
+      {
+        id: "planejamento-estrategico-2026-14",
+        type: "closing",
+        visual: "closing",
+        eyebrow: "14 / 14 - Encerramento",
+        footer: "MASI Negócios - Design System",
+        title: "MASI Workshop\nPlanejamento Estratégico 2026",
+        subtitle: "7 e 8 de fevereiro, São Paulo",
+        body: "Vagas limitadas para 40 empresários selecionados. Garanta seu acesso à metodologia que escalou iFood, PK XD e PlayKids.",
+        quote: "Feche hoje com 20% de desconto e check-ins de implementação em 30, 60 e 90 dias.",
+      },
+    ],
+  },
+  {
     id: "user-modelo-gestao",
     slug: "modelo-gestao",
     title: "Modelo de\nGestão",
