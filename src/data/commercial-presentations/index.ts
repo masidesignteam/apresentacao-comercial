@@ -3,6 +3,7 @@ export {
   commercialPresentations,
   commercialSlideCount,
 } from "./presentations";
+export { userPresentations } from "./user-presentations";
 export type {
   CommercialPresentation,
   CommercialSlide,
