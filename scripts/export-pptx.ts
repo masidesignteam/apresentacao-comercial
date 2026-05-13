@@ -124,7 +124,8 @@ function addPageBg(slide: PptxGenJS.Slide, dark = false) {
           { color: "000000", position: 100 },
         ],
         gradAngle: 315,
-      } as PptxGenJS.ShapeFillProps,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } as any,
       line: { color: "000000", width: 0 },
     });
   }
