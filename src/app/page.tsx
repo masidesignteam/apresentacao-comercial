@@ -356,7 +356,7 @@ export default function Home() {
 
       {/* Floating navbar */}
       <header
-        className="fixed z-30 flex items-center justify-between rounded-[10px] bg-[#ececec]"
+        className="fixed z-30 flex items-center justify-between rounded-[10px] bg-[#ececec] border border-white"
         style={{
           top: NAV_TOP,
           left: NAV_X,
