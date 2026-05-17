@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { CommercialPresentation, CommercialSlide } from "@/data/commercial-presentations";
 import { AbstractVisual, SlideBody, SlideEyebrow, SlideShell, SlideTitle } from "./SlidePrimitives";
 import { SlideChartVisual } from "./SlideChart";
@@ -21,23 +20,13 @@ export function SlideSplit({
           </div>
         </div>
         <div className="grid min-h-0 grid-rows-[1fr_auto] gap-[5%]">
-          {slide.imageSrc && slide.type === "concept" ? (
+          {slide.imageSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={slide.imageSrc.src}
               alt={slide.imageAlt ?? ""}
-              className="block h-auto w-full max-w-none self-end justify-self-center"
+              className="block h-auto max-h-[520px] w-auto max-w-full self-center justify-self-center object-contain"
             />
-          ) : slide.imageSrc ? (
-            <div className="relative min-h-0 overflow-hidden rounded-[10px]">
-              <Image
-                src={slide.imageSrc}
-                alt={slide.imageAlt ?? ""}
-                fill
-                className="object-cover"
-                sizes="700px"
-              />
-            </div>
           ) : slide.chart ? (
             <SlideChartVisual
               chart={slide.chart}
@@ -51,8 +40,8 @@ export function SlideSplit({
               label={slide.imageDirection}
             />
           )}
-          <div className="grid grid-cols-3 gap-[3%]">
-            {slide.bullets?.slice(0, 3).map((bullet, index) => (
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-[3%]">
+            {slide.bullets?.map((bullet, index) => (
               <div key={bullet} className="rounded-[10px] bg-white p-[8%] shadow-[var(--shadow-card)]">
                 <p className="mb-[8%] font-mono text-[15px] font-bold" style={{ color: presentation.accent }}>
                   0{index + 1}

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { CommercialPresentation, CommercialSlide } from "@/data/commercial-presentations";
 import { ChamferedPanel } from "@/components/chamfered-panel";
 import {
@@ -7,7 +6,6 @@ import {
   SlideEyebrow,
   SlideFooter,
   SlideLogo,
-  SlideShell,
   SlideTitle,
 } from "./SlidePrimitives";
 
@@ -84,47 +82,56 @@ export function SlideCover({
   }
 
   return (
-    <SlideShell presentation={presentation} slide={slide}>
-      <div className="flex h-full flex-col justify-between pb-[5%]">
-        <div className="flex items-start justify-between">
-          <SlideLogo />
-          <SlideEyebrow accent={presentation.accent}>{slide.eyebrow}</SlideEyebrow>
-        </div>
-        <div className="grid min-h-0 grid-cols-[1.05fr_0.95fr] gap-[7%]">
-          <div className="flex flex-col justify-end gap-[4%]">
-            <SlideTitle size="xl" className="max-w-[17ch] leading-[0.84]">{slide.title}</SlideTitle>
-            <SlideBody className="max-w-[48ch]">{slide.body}</SlideBody>
-            <div className="flex flex-wrap gap-[2%] pt-[2%]">
-              {slide.bullets?.map((bullet) => (
-                <span
-                  key={bullet}
-                  className="rounded-full bg-black px-[18px] py-[8px] text-[12px] font-bold uppercase tracking-[0.08em] text-white"
-                >
-                  {bullet}
-                </span>
-              ))}
-            </div>
+    <article className="relative flex h-full w-full overflow-hidden bg-[#D4D4D4] p-[20px] text-black">
+      <ChamferedPanel
+        strokeColor="#FFFFFF"
+        strokeWidth={1}
+        innerStyle={{
+          background: "#ECECEC",
+          borderRadius: 10,
+          padding: 70,
+        }}
+      >
+        <div className="relative z-10 flex min-h-0 w-full flex-col justify-between pb-[5%]">
+          <div className="flex items-start justify-between">
+            <SlideLogo />
+            <SlideEyebrow accent={presentation.accent}>{slide.eyebrow}</SlideEyebrow>
           </div>
-          {slide.imageSrc ? (
-            <div className="relative min-h-0 overflow-hidden rounded-[10px]">
-              <Image
-                src={slide.imageSrc}
-                alt={slide.imageAlt ?? ""}
-                fill
-                className="object-cover"
-                sizes="700px"
-                priority
-              />
+          <div className="grid min-h-0 grid-cols-[1.05fr_0.95fr] gap-[7%]">
+            <div className="flex flex-col justify-end gap-[4%]">
+              <SlideTitle size="xl" className="max-w-[17ch] leading-[0.84]">{slide.title}</SlideTitle>
+              <SlideBody className="max-w-[48ch]">{slide.body}</SlideBody>
+              <div className="flex flex-wrap gap-[2%] pt-[2%]">
+                {slide.bullets?.map((bullet) => (
+                  <span
+                    key={bullet}
+                    className="rounded-full bg-black px-[18px] py-[8px] text-[12px] font-bold uppercase tracking-[0.08em] text-white"
+                  >
+                    {bullet}
+                  </span>
+                ))}
+              </div>
             </div>
-          ) : (
-            <AbstractVisual
-              accent={presentation.accent}
-              label={slide.imageDirection}
-              variant="orbital"
-            />
-          )}
+            {slide.imageSrc ? (
+              <div className="flex min-h-0 items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={slide.imageSrc.src}
+                  alt={slide.imageAlt ?? ""}
+                  className="block h-auto max-h-[560px] w-auto max-w-full object-contain"
+                />
+              </div>
+            ) : (
+              <AbstractVisual
+                accent={presentation.accent}
+                label={slide.imageDirection}
+                variant="orbital"
+              />
+            )}
+          </div>
         </div>
-      </div>
-    </SlideShell>
+      </ChamferedPanel>
+      <SlideFooter presentation={presentation} slide={slide} />
+    </article>
   );
 }

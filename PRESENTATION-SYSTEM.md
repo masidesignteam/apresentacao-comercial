@@ -92,6 +92,11 @@ Para cada bloco de texto identificado, verifique:
 - **Limite ultrapassado** → dividir em duas páginas do tipo mais adequado, nunca cortar conteúdo
 - **Conteúdo escasso** → manter na página mais simples disponível (ex: sem gráfico se não há dados)
 - **Máximo de 2 palavras adicionadas** por campo para encaixar no limite — nunca mais que isso
+- **Conteúdo importante não cabe** → criar nova página, novo bloco, novo layout ou nova implementação compatível com o design system; nunca esconder conteúdo por limitação do componente
+- **Novas implementações são permitidas** quando necessárias para preservar conteúdo, desde que sigam os princípios do design system: clareza, respiro, hierarquia, consistência visual e ausência de excesso decorativo
+- **Gráficos só podem existir com dados reais, fonte explícita ou números fornecidos pelo usuário**; se não houver base, usar cards, lista, diagrama conceitual ou texto estruturado, nunca porcentagens ou séries inventadas
+- **Dados estimados ou ilustrativos** só podem aparecer se o slide deixar isso explícito e o usuário aprovar
+- **Primeira página / capa** → a section principal deve usar chanfro (`ChamferedPanel`) com stroke claro, mantendo a linguagem visual do sistema
 
 ---
 
@@ -257,21 +262,27 @@ export const userPresentations: CommercialPresentation[] = [
 
 ---
 
-## Step 6 — Geração de imagens via API
+## Step 6 — Geração de imagens via Codex
 
 > Executar **após** Step 5 (slides criados) e Step 4c (plano aprovado).  
-> Requer `OPENAI_API_KEY` configurada e prompt base de estilo em `IMAGE-SYSTEM.md`.
+> A geração é conduzida aqui no Codex, usando briefing visual, referências e iterações com o usuário.  
+> Não requer `OPENAI_API_KEY`, script local ou chamada manual de API.
 
 ### 6.1 — Verificar pré-requisitos
 
-```bash
-# Verificar se a API key está disponível
-echo $OPENAI_API_KEY
-```
+Antes de gerar, confirmar se o usuário já forneceu:
 
-Se não estiver configurada → avisar o usuário e aguardar.
+- Ajustes específicos da apresentação sobre a direção visual oficial do `IMAGE-SYSTEM.md`
+- Referências visuais adicionais, se houver
+- Objetos, materiais ou caminhos visuais que devem ser evitados naquela apresentação
 
-### 6.2 — Criar pasta de imagens do projeto
+Se faltar contexto específico, usar a direção visual oficial e perguntar apenas se há exceções:
+
+> Vou usar a direção visual oficial do sistema. Tem alguma referência extra, material específico ou coisa que você queira evitar nesta apresentação?
+
+### 6.2 — Preparar pasta de imagens do projeto
+
+Criar a pasta final da apresentação:
 
 ```bash
 mkdir -p "Imagens/[slug]"
@@ -281,10 +292,12 @@ mkdir -p "Imagens/[slug]"
 
 Para cada slide do plano aprovado:
 
-1. Montar o prompt final: `[PROMPT BASE DO IMAGE-SYSTEM.md] + [CONTENT PROMPT do slide]`
-2. Chamar a API conforme estrutura em `IMAGE-SYSTEM.md` seção 7
-3. Fazer download da imagem gerada para `Imagens/[slug]/slide-[NN].png`
-4. Atualizar o slide em `user-presentations.ts` com `imageSrc` e `imageAlt`
+1. Montar o prompt final com: `[DIREÇÃO VISUAL OFICIAL] + [REFERÊNCIAS] + [AJUSTES DA APRESENTAÇÃO] + [CONTENT PROMPT do slide]`
+2. Gerar a imagem pelo Codex/imagegen
+3. Revisar se a imagem respeita o conceito, o estilo e as restrições
+4. Iterar uma vez por ajuste específico, se necessário
+5. Salvar a imagem aprovada em `Imagens/[slug]/slide-[NN].png`
+6. Atualizar o slide em `user-presentations.ts` com `imageSrc` e `imageAlt`
 
 ### 6.4 — Importar imagens no arquivo de dados
 

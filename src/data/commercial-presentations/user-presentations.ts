@@ -1,4 +1,9 @@
 import type { CommercialPresentation } from "./types";
+import quemSomosSlide01Image from "../../../Imagens/quem-somos-masi-negocios/slide-01.png";
+import quemSomosSlide03Image from "../../../Imagens/quem-somos-masi-negocios/slide-03.png";
+import quemSomosSlide06Image from "../../../Imagens/quem-somos-masi-negocios/slide-06.png";
+import quemSomosSlide10Image from "../../../Imagens/quem-somos-masi-negocios/slide-10.png";
+import quemSomosSlide13Image from "../../../Imagens/quem-somos-masi-negocios/slide-13.png";
 
 export const userPresentations: CommercialPresentation[] = [
   {
@@ -542,6 +547,242 @@ export const userPresentations: CommercialPresentation[] = [
         subtitle: "Modelo de Gestão",
         body: "Use este modelo para organizar sua empresa, tomar decisões melhores e construir resultados com consistência.",
         quote: "Negócios fortes são construídos quando visão e execução apontam ao mesmo lugar.",
+      },
+    ],
+  },
+  {
+    id: "user-quem-somos-masi-negocios",
+    slug: "quem-somos-masi-negocios",
+    title: "Quem\nSomos",
+    subtitle: "Um ecossistema para empresários em crescimento.",
+    description: "A Masi Negócios como hub de educação empresarial, aceleração e experiências para empresários que buscam crescimento, inovação e resultados reais.",
+    theme: "Institucional, ecossistema empresarial, educação executiva",
+    style: "Editorial institucional com objetos técnicos premium",
+    useCase: "Apresentação institucional, comercial e abertura de programas",
+    accent: "#5FC318",
+    darkAccent: "#0C1C16",
+    tags: ["Institucional", "Educação Empresarial", "Aceleração"],
+    slides: [
+      // 01 — Capa
+      {
+        id: "quem-somos-masi-negocios-01",
+        type: "cover",
+        visual: "editorial",
+        eyebrow: "01 / 16 - Capa",
+        footer: "MASI Negócios - Design System",
+        title: "Quem\nSomos",
+        subtitle: "Um ecossistema para empresários em crescimento.",
+        body: "Educação empresarial, aceleração e experiências para inovação, crescimento e resultados reais.",
+        bullets: ["Educação", "Aceleração", "Experiências"],
+        imageDirection: "Artefato físico premium em forma de hub modular, com anéis técnicos conectando módulos translúcidos, representando ecossistema empresarial.",
+        imageSrc: quemSomosSlide01Image,
+        imageAlt: "Artefato modular premium em metal e acrílico translúcido representando um hub empresarial.",
+      },
+      // 02 — Tese
+      {
+        id: "quem-somos-masi-negocios-02",
+        type: "statement",
+        visual: "quote",
+        eyebrow: "02 / 16 - Tese",
+        footer: "MASI Negócios - Design System",
+        title: "Crescimento que transforma",
+        quote: "O crescimento das empresas transforma pessoas, mercados e o país.",
+        body: "A MASI existe para desenvolver empresários e construir empresas mais fortes.",
+      },
+      // 03 — Hub de experiências
+      {
+        id: "quem-somos-masi-negocios-03",
+        type: "concept",
+        visual: "map",
+        eyebrow: "03 / 16 - Hub",
+        footer: "MASI Negócios - Design System",
+        title: "Hub de experiências",
+        body: "A Masi conecta empresários a especialistas, mentores e outros empresários em evolução constante.",
+        bullets: ["Mentorias", "Workshops", "Cursos", "Eventos", "Aceleração"],
+        imageDirection: "Estrutura técnica central com módulos encaixados, como uma maquete industrial de um ecossistema de experiências empresariais.",
+        imageSrc: quemSomosSlide03Image,
+        imageAlt: "Maquete técnica com módulos encaixados representando um ecossistema de experiências empresariais.",
+      },
+      // 04 — Contexto
+      {
+        id: "quem-somos-masi-negocios-04",
+        type: "context",
+        visual: "split",
+        eyebrow: "04 / 16 - Contexto",
+        footer: "MASI Negócios - Design System",
+        title: "Empresários buscam evolução",
+        body: "Crescer exige inovação, gestão, estratégia e acesso a conhecimento prático de quem já construiu.",
+        bullets: ["Inovação", "Gestão", "Estratégia", "Conhecimento prático"],
+      },
+      // 05 — Gargalos
+      {
+        id: "quem-somos-masi-negocios-05",
+        type: "problem",
+        visual: "dark",
+        eyebrow: "05 / 16 - Gargalos",
+        footer: "MASI Negócios - Design System",
+        title: "O crescimento trava",
+        body: "Empresas avançam até certo ponto, mas travam por falta de gestão, cultura, vendas, processos ou liderança.",
+        bullets: ["Gestão", "Cultura", "Vendas", "Processos", "Liderança"],
+      },
+      // 06 — Oportunidade
+      {
+        id: "quem-somos-masi-negocios-06",
+        type: "opportunity",
+        visual: "editorial",
+        eyebrow: "06 / 16 - Oportunidade",
+        footer: "MASI Negócios - Design System",
+        title: "Destravar o próximo nível",
+        body: "A Masi ajuda empresários a identificar gargalos e transformar conhecimento prático em crescimento sustentável.",
+        bullets: ["Diagnóstico", "Direção", "Acompanhamento"],
+        imageDirection: "Dispositivo metálico de destravamento, com peça central se abrindo de forma precisa, representando o desbloqueio do crescimento.",
+        imageSrc: quemSomosSlide06Image,
+        imageAlt: "Dispositivo metálico de precisão com núcleo se abrindo para representar destravamento de crescimento.",
+      },
+      // 07 — Como atuamos
+      {
+        id: "quem-somos-masi-negocios-07",
+        type: "framework",
+        visual: "matrix",
+        eyebrow: "07 / 16 - Atuação",
+        footer: "MASI Negócios - Design System",
+        title: "Como atuamos",
+        body: "Um sistema de experiências que combina conteúdo, prática, conexão e acompanhamento.",
+        cards: [
+          { title: "Programas presenciais", description: "Encontros de imersão, aplicação e troca qualificada." },
+          { title: "Programas online", description: "Conteúdo estruturado para ampliar acesso e continuidade." },
+          { title: "Mentorias e workshops", description: "Direcionamento prático com especialistas e executivos." },
+          { title: "Aceleração empresarial", description: "Diagnóstico, acompanhamento e plano de crescimento." },
+        ],
+      },
+      // 08 — Conexões qualificadas
+      {
+        id: "quem-somos-masi-negocios-08",
+        type: "leaders",
+        visual: "cards",
+        eyebrow: "08 / 16 - Conexões",
+        footer: "MASI Negócios - Design System",
+        title: "Conexões que aceleram",
+        body: "Empresários crescem melhor quando acessam especialistas, mentores e pares que enfrentam desafios reais.",
+        cards: [
+          { title: "Especialistas", description: "Profissionais com repertório aplicado em crescimento." },
+          { title: "Mentores", description: "Lideranças que já construíram, escalaram e operaram empresas." },
+          { title: "Empresários", description: "Pares que compartilham desafios, decisões e aprendizados." },
+        ],
+      },
+      // 09 — Conhecimento prático
+      {
+        id: "quem-somos-masi-negocios-09",
+        type: "principle",
+        visual: "quote",
+        eyebrow: "09 / 16 - Princípio",
+        footer: "MASI Negócios - Design System",
+        title: "Conhecimento que vem da prática",
+        quote: "O conhecimento que transforma empresas nasce no jogo real da liderança.",
+        body: "A Masi conecta teoria útil a decisões, vendas, gestão, cultura e execução.",
+      },
+      // 10 — Especialistas
+      {
+        id: "quem-somos-masi-negocios-10",
+        type: "example",
+        visual: "split",
+        eyebrow: "10 / 16 - Especialistas",
+        footer: "MASI Negócios - Design System",
+        title: "Repertório de empresas que escalaram",
+        body: "Especialistas com experiência em empresas como iFood, OLX, Sympla, PlayKids e outras referências de crescimento.",
+        bullets: ["Experiência real", "Diagnóstico estratégico", "Decisão aplicada", "Execução acompanhada"],
+        imageDirection: "Módulo técnico de aceleração com trilhos, camadas e núcleo translúcido, sugerindo execução aplicada e crescimento orientado por especialistas.",
+        imageSrc: quemSomosSlide10Image,
+        imageAlt: "Módulo técnico com trilhos metálicos e núcleo translúcido representando aceleração empresarial.",
+      },
+      // 11 — Impacto
+      {
+        id: "quem-somos-masi-negocios-11",
+        type: "stats",
+        visual: "stats",
+        eyebrow: "11 / 16 - Impacto",
+        footer: "MASI Negócios - Design System",
+        title: "Impacto real",
+        body: "Programas, mentorias, encontros e conteúdos práticos para empresas em busca de evolução.",
+        stats: [
+          { value: "1000+", label: "empresários impactados" },
+          { value: "Centenas", label: "empresas impactadas" },
+          { value: "5", label: "formatos de experiência" },
+        ],
+      },
+      // 12 — Resultados buscados
+      {
+        id: "quem-somos-masi-negocios-12",
+        type: "benefits",
+        visual: "cards",
+        eyebrow: "12 / 16 - Resultados",
+        footer: "MASI Negócios - Design System",
+        title: "Resultados que importam",
+        body: "O foco é gerar crescimento sustentável, eficiência e visão estratégica de longo prazo.",
+        cards: [
+          { title: "Crescimento sustentável", description: "Evolução com estrutura, método e ritmo." },
+          { title: "Aumento de margem", description: "Melhores decisões para proteger resultado." },
+          { title: "Organização empresarial", description: "Mais clareza em gestão, processos e prioridades." },
+          { title: "Visão de longo prazo", description: "Estratégia para construir empresas mais fortes." },
+        ],
+      },
+      // 13 — Virada
+      {
+        id: "quem-somos-masi-negocios-13",
+        type: "turning-point",
+        visual: "dark",
+        eyebrow: "13 / 16 - Virada",
+        footer: "MASI Negócios - Design System",
+        title: "Empresários não precisam crescer sozinhos",
+        body: "Quando empresários se conectam, compartilham desafios e aprendizados, o crescimento fica mais rápido e estruturado.",
+        quote: "Crescimento também é ecossistema.",
+        imageDirection: "Peça de engenharia com dois blocos antes separados agora conectados por um mecanismo central, traduzindo a ideia de que empresários não crescem sozinhos.",
+        imageSrc: quemSomosSlide13Image,
+        imageAlt: "Dois blocos técnicos conectados por mecanismo central translúcido representando crescimento em ecossistema.",
+      },
+      // 14 — Ecossistema
+      {
+        id: "quem-somos-masi-negocios-14",
+        type: "action-plan",
+        visual: "timeline",
+        eyebrow: "14 / 16 - Ecossistema",
+        footer: "MASI Negócios - Design System",
+        title: "Um ecossistema em movimento",
+        body: "A proposta é criar um ambiente onde empresários aprendem, trocam e geram oportunidades juntos.",
+        cards: [
+          { title: "Aprender", description: "Acesso a conhecimento aplicado e direcionado." },
+          { title: "Trocar", description: "Compartilhar desafios, decisões e aprendizados." },
+          { title: "Conectar", description: "Criar relações qualificadas entre empresários." },
+          { title: "Crescer", description: "Transformar repertório em oportunidades reais." },
+        ],
+      },
+      // 15 — Frentes estratégicas
+      {
+        id: "quem-somos-masi-negocios-15",
+        type: "recommendations",
+        visual: "cards",
+        eyebrow: "15 / 16 - Frentes",
+        footer: "MASI Negócios - Design System",
+        title: "Onde ajudamos a evoluir",
+        body: "A Masi atua nos temas que mais destravam o próximo nível de crescimento das empresas.",
+        cards: [
+          { title: "Gestão e estratégia", description: "Direção clara, prioridades e tomada de decisão." },
+          { title: "Vendas e marketing", description: "Crescimento comercial com método e consistência." },
+          { title: "Cultura e liderança", description: "Times mais alinhados, responsáveis e preparados." },
+          { title: "Inovação e processos", description: "Eficiência, organização e visão de futuro." },
+        ],
+      },
+      // 16 — Contracapa
+      {
+        id: "quem-somos-masi-negocios-16",
+        type: "closing",
+        visual: "closing",
+        eyebrow: "16 / 16 - Encerramento",
+        footer: "MASI Negócios - Design System",
+        title: "Construir empresas melhores para construir um país melhor",
+        subtitle: "MASI Negócios",
+        body: "Desenvolvemos empresários para construir empresas mais fortes, lucrativas e bem estruturadas.",
+        quote: "O futuro do Brasil passa por empresas mais preparadas.",
       },
     ],
   },

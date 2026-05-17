@@ -9,7 +9,7 @@
 ### Sistema de criação (PRESENTATION-SYSTEM.md)
 - Steps 1–5: gatilho → pergunta → análise → mapeamento → preview → criação
 - Step 4b e 4c: plano de imagens e aprovação
-- Step 6: geração de imagens via API (estrutura pronta, falta API key + prompt)
+- Step 6: geração de imagens via Codex/imagegen, com briefing visual e referências do usuário
 - Step 7: confirmação final
 - Arquivo `user-presentations.ts` para armazenar apresentações criadas
 - Mapeamento de 20 tipos de página com limites de caracteres
@@ -18,7 +18,9 @@
 - Algoritmo de seleção: quais slides recebem imagem (fórmula + prioridades)
 - Regra de não-consecutividade entre slides com imagem
 - Mapa conceito → objeto para prompts de conteúdo
-- Estrutura da chamada API (modelo gpt-image-1-mini)
+- Direção visual oficial definida: objetos físicos realistas, minimalistas, técnicos, premium e futuristas
+- Referências visuais disponíveis em `IMAGENS REFERENCIA/`
+- Fluxo de geração via Codex/imagegen, sem script local obrigatório
 - Convenção de nomes de arquivo e atualização dos slides após geração
 
 ### Interface (app)
@@ -35,25 +37,15 @@
 
 ## 🔴 Faltando — Bloqueado aguardando usuário
 
-### 1. Prompt base de estilo visual das imagens
-**O que é:** o prompt que define a linguagem visual de TODAS as imagens geradas.  
-Exemplo: estilo 3D editorial, fundo transparente, sombra suave, paleta neutra.  
-**Onde vai:** `IMAGE-SYSTEM.md` seção 6, substituindo o placeholder `[INSERIR AQUI]`.  
-**Quem fornece:** usuário.
-
-### 2. API Key da OpenAI
-**O que é:** chave de acesso para chamar o modelo `gpt-image-1-mini`.  
-**Como configurar:** `export OPENAI_API_KEY="sk-..."` no terminal antes de rodar.  
-**Quem fornece:** usuário (criar em platform.openai.com com billing ativo).
+Nenhum bloqueio geral no sistema de imagens. Para cada nova apresentação, o usuário pode informar referências ou exceções específicas.
 
 ---
 
 ## 🟡 Faltando — Para construir
 
-### 3. Integração real de geração de imagens
-**O que é:** o script que lê `IMAGE-SYSTEM.md`, chama a API da OpenAI e salva as imagens em `/Imagens/[slug]/slide-NN.png`, atualizando `user-presentations.ts`.  
-**Depende de:** itens 1 e 2 acima.  
-**Arquivo alvo:** `scripts/generate-images.ts`
+### 3. Integração final das imagens geradas
+**O que é:** salvar as imagens aprovadas em `/Imagens/[slug]/slide-NN.png` e atualizar `user-presentations.ts` com `imageSrc` e `imageAlt`.  
+**Depende de:** plano de imagens aprovado e geração feita via Codex/imagegen.
 
 ### 4. Rotas de exportação para Figma (apresentações do usuário)
 **O que é:** rotas isoladas `1600×900` sem sidebar/navbar para cada slide de cada apresentação do usuário, equivalente às que já existem para a apresentação demo em `/styleguide/paginas/apresentacoes-comerciais/slide-N`.  
@@ -73,12 +65,13 @@ Exemplo: estilo 3D editorial, fundo transparente, sombra suave, paleta neutra.
 ## 📋 Ordem de execução recomendada
 
 ```
-1. Usuário fornece: prompt de estilo visual → atualizar IMAGE-SYSTEM.md
-2. Usuário fornece: API Key OpenAI → configurar no ambiente
-3. Construir: scripts/generate-images.ts
-4. Construir: rotas /apresentacao/[slug]/export/[index]
-5. Construir: script de exportação Figma automatizado
-6. Testar: fluxo completo (criar apresentação → gerar imagens → exportar Figma → PPT)
+1. Usuário fornece: conteúdo da apresentação
+2. Mapear slides e aprovar plano de imagens
+3. Gerar imagens aqui no Codex/imagegen conforme a direção visual oficial
+4. Integrar imagens em /Imagens/[slug] e user-presentations.ts
+5. Construir: rotas /apresentacao/[slug]/export/[index]
+6. Construir: script de exportação Figma automatizado
+7. Testar: fluxo completo (criar apresentação → gerar imagens → exportar Figma → PPT)
 ```
 
 ---
@@ -89,5 +82,8 @@ Exemplo: estilo 3D editorial, fundo transparente, sombra suave, paleta neutra.
 - **Exportação via screenshot (Playwright):** não é editável. Descartada.
 - **Melhor caminho para PPT editável:** Figma → PPT (já funciona localmente, resultado perfeito).
 - **Fonte no PPT:** se retomar PptxGenJS, usar Arial (usuário aprovou).
-- **Imagens com fundo transparente:** custo igual ao PNG normal (preço por tokens/resolução, não por transparência).
-- **Modelo de imagem:** `gpt-image-1-mini` (melhor custo-benefício).
+- **Imagens:** serão geradas por Codex/imagegen nesta conversa, com iteração visual orientada pelo usuário.
+- **Transparência:** o arquivo final integrado deve ser PNG com alpha real; não integrar imagens com fundo falso.
+- **Aplicação de imagens:** imagens de objeto devem aparecer inteiras, sem crop, sem `object-cover` e sem frame que corte o PNG.
+- **Conteúdo:** o sistema pode criar novas páginas, layouts ou implementações para preservar informação relevante; não cortar conteúdo para caber no componente.
+- **Gráficos:** só usar com dados reais, fonte explícita ou números fornecidos pelo usuário. Sem base, trocar por cards, texto estruturado ou visual conceitual.

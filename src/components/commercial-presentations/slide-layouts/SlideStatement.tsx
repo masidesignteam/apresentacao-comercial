@@ -37,7 +37,7 @@ export function SlideStatement({
         <img
           src={slide.imageSrc.src}
           alt={slide.imageAlt ?? ""}
-          className="absolute bottom-[-2%] right-[7%] z-0 block h-auto w-[805px] max-w-none"
+          className="absolute right-[5%] top-1/2 z-0 block h-auto max-h-[76%] w-auto max-w-[45%] -translate-y-1/2 object-contain"
         />
         <SlideFooter presentation={presentation} slide={slide} dark={dark} />
       </article>

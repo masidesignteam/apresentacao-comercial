@@ -143,6 +143,61 @@ export default function PresentationPage({ params }: { params: Promise<{ slug: s
 
   return (
     <div className="relative min-h-screen bg-background">
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/20"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
+      <aside
+        className={cn(
+          "fixed z-50 flex flex-col overflow-y-auto rounded-[10px] border border-white p-5",
+          "transition-transform duration-200",
+          menuOpen ? "translate-x-0" : "translate-x-[calc(100%+30px)]"
+        )}
+        style={{
+          right: NAV_X,
+          top: NAV_X,
+          width: 280,
+          maxHeight: `calc(100vh - ${NAV_X * 2}px)`,
+          backgroundColor: "#ececec",
+          boxShadow: "0 18px 40px rgba(15,23,42,0.10)",
+        }}
+      >
+        <div className="mb-4 flex items-center justify-between border-b border-white pb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+            Apresentações
+          </p>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            className="rounded-[8px] p-1 transition hover:bg-black/5"
+            aria-label="Fechar menu"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+
+        <nav className="flex flex-col gap-1">
+          {allPresentations.map((item) => (
+            <Link
+              key={item.id}
+              href={`/apresentacao/${item.slug}`}
+              onClick={() => setMenuOpen(false)}
+              className={cn(
+                "block rounded-[10px] px-3 py-2.5 text-[13px] font-medium transition hover:bg-black/5",
+                item.slug === presentation.slug ? "bg-white text-foreground shadow-sm" : "text-foreground"
+              )}
+            >
+              {item.title.replace(/\n/g, " ")}
+            </Link>
+          ))}
+        </nav>
+      </aside>
+
       <header
         className="fixed z-30 flex items-center justify-between rounded-[10px] bg-[#ececec]"
         style={{ top: NAV_TOP, left: NAV_X, right: NAV_X, height: NAV_H, paddingLeft: NAV_X, paddingRight: NAV_X }}
